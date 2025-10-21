@@ -2,8 +2,9 @@
 const mongoose = require('mongoose');
 
 const roomSchema = new mongoose.Schema({
-  // 房间ID
-  roomId: {
+  // 不用roomid，mogodb内部有_id可以供我使用
+  // 我只需要维护在线房间列表的code就好
+  roomCode: {
     type: String,
     required: true,
     unique: true,
@@ -21,17 +22,13 @@ const roomSchema = new mongoose.Schema({
   status: {
     type: String,
     required: true,
-    enum: ['waiting', 'playing'],
+    enum: ['waiting', 'playing', 'closed'],
     default: 'waiting'
   },
   
   // 玩家列表
   players: [{
     userId: {
-      type: String,
-      required: true
-    },
-    nickname: {
       type: String,
       required: true
     },

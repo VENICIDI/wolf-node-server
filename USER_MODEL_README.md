@@ -167,18 +167,6 @@ node app.js
 }
 ```
 
-### 7. 删除用户
-
-**接口：** `DELETE /api/user/:userId`
-
-**响应：**
-```json
-{
-  "success": true,
-  "message": "用户已删除"
-}
-```
-
 ### 8. 获取用户列表
 
 **接口：** `GET /api/user/list?page=1&limit=20&platform=wechat`
@@ -307,8 +295,6 @@ await User.findOneAndUpdate(
   { new: true }
 );
 
-// 删除用户
-await User.findOneAndDelete({ userId: 'xxx' });
 ```
 
 ### 在 Service 层使用
