@@ -33,6 +33,9 @@ export default class RoomService {
     if (!room) {
       throw new Error('房间不存在');
     }
+    if (room.players.length === 12 ) {
+      throw new Error('房间已满');
+    }
     if (room.players.some(player => player.userId === userId)) {
       throw new Error('你已经在这个房间了');
     }
